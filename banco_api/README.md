@@ -60,18 +60,38 @@ banco_api/
 ├── main.py             # Ponto de entrada da aplicação FastAPI.
 └── security.py         # Funções para segurança (hashing de senhas, criação/validação JWT).
 
-## Como Rodar o Projeto
+## Como Executar Localmente
 
-1.  **Instale Poetry:** `pip install poetry`
-2.  **Clone o repositório:** `git clone <URL_DO_SEU_REPOSITORIO>` e `cd banco_api`
-3.  **Instale as dependências:** `poetry install`
-4.  **Crie o arquivo `.env`:** Copie de `.env.example` e preencha `SECRET_KEY` e `DATABASE_URL`.
-5.  **Configure e aplique as migrações (Alembic):**
-    * `poetry run alembic init migrations`
-    * Ajuste `sqlalchemy.url = %(DATABASE_URL)s` em `alembic.ini`.
-    * Ajuste `from src.db.database import Base` e `target_metadata = Base.metadata` em `migrations/env.py`.
-    * `poetry run alembic revision --autogenerate -m "create initial tables"`
-    * `poetry run alembic upgrade head`
-6.  **Inicie a API:** `poetry run uvicorn src.main:app --reload`
+Para executar este projeto em sua máquina, siga os passos abaixo.
 
-A API estará disponível em `http://127.0.0.1:8000`. Acesse a documentação interativa em `http://127.0.0.1:8000/api/v1/docs` para testar.
+Pré-requisitos:
+
+-   Python 3.9+
+-   Poetry (ferramenta de gerenciamento de dependências)
+
+# 1. Clone o repositório para sua máquina
+git clone https://github.com/SEU_USUARIO/python_developer_DIO.git
+
+# 2. Navegue até o diretório da API
+cd python_developer_DIO/banco_api/
+
+# 3. Instale as dependências do projeto com Poetry
+# Isso criará um ambiente virtual e instalará tudo que está no pyproject.toml
+poetry install
+
+# 4. Configure as variáveis de ambiente
+# Copie o arquivo de exemplo para criar seu próprio arquivo de configuração
+cp .env.example .env
+# Agora, abra o arquivo '.env' e adicione uma SECRET_KEY (pode ser qualquer string longa e aleatória)
+
+# 5. Aplique as migrações do banco de dados
+# Este comando criará o arquivo de banco de dados (SQLite) com todas as tabelas necessárias
+poetry run alembic upgrade head
+
+# 6. Inicie o servidor da API
+poetry run uvicorn src.main:app --reload
+
+🚀 Pronto! A API estará em execução e disponível em http://127.0.0.1:8000.
+
+Acesse a documentação interativa (Swagger UI) para explorar e testar os endpoints em:
+http://127.0.0.1:8000/docs
