@@ -69,27 +69,27 @@ Pré-requisitos:
 -   Python 3.9+
 -   Poetry (ferramenta de gerenciamento de dependências)
 
-# 1. Clone o repositório para sua máquina
-git clone https://github.com/SEU_USUARIO/python_developer_DIO.git
+  ## 1. Clone o repositório para sua máquina
+    git clone https://github.com/SEU_USUARIO/python_developer_DIO.git
 
-# 2. Navegue até o diretório da API
-cd python_developer_DIO/banco_api/
+  ## 2. Navegue até o diretório da API
+    cd python_developer_DIO/banco_api/
 
-# 3. Instale as dependências do projeto com Poetry
-# Isso criará um ambiente virtual e instalará tudo que está no pyproject.toml
-poetry install
+  ## 3. Instale as dependências do projeto com Poetry
+    ## Isso criará um ambiente virtual e instalará tudo que está no pyproject.toml
+    poetry install
 
-# 4. Configure as variáveis de ambiente
-# Copie o arquivo de exemplo para criar seu próprio arquivo de configuração
-cp .env.example .env
-# Agora, abra o arquivo '.env' e adicione uma SECRET_KEY (pode ser qualquer string longa e aleatória)
+  ## 4. Configure as variáveis de ambiente
+    ## Copie o arquivo de exemplo para criar seu próprio arquivo de configuração
+    cp .env.example .env
+    ## Agora, abra o arquivo '.env' e adicione uma SECRET_KEY (pode ser qualquer string longa e aleatória)
 
-# 5. Aplique as migrações do banco de dados
-# Este comando criará o arquivo de banco de dados (SQLite) com todas as tabelas necessárias
-poetry run alembic upgrade head
+  ## 5. Aplique as migrações do banco de dados
+    ## Este comando criará o arquivo de banco de dados (SQLite) com todas as tabelas necessárias
+    poetry run alembic upgrade head
 
-# 6. Inicie o servidor da API
-poetry run uvicorn src.main:app --reload
+  ## 6. Inicie o servidor da API
+    poetry run uvicorn src.main:app --reload
 
 🚀 Pronto! A API estará em execução e disponível em http://127.0.0.1:8000.
 
